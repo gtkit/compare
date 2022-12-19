@@ -8,8 +8,8 @@ import (
 )
 
 func TestStrCompare(t *testing.T) {
-	a := "19"
-	b := "20"
+	a := "10.0"
+	b := "6.1"
 	r := strcmp.NumCmp(a, b)
 	t.Log(r)
 }
