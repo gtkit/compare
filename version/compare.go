@@ -31,7 +31,11 @@ func Compare(verA, verB string) int {
 	lenStrB := len(verStrArrB)
 
 	if lenStrA != lenStrB {
-		panic("版本号格式不一致!")
+		if lenStrA > lenStrB {
+			return 1
+		}
+		return -1
+		// panic("版本号格式不一致!")
 
 	}
 
@@ -53,9 +57,7 @@ func compareArrVersion(verA, verB []string) int {
 	return VersionEqual
 }
 
-//
 // 比较小版本号字符串
-//
 func compareLittleVersion(verA, verB string) int {
 
 	bytesA := []byte(verA)
