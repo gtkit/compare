@@ -8,8 +8,8 @@ import (
 )
 
 func TestVersion(t *testing.T) {
-	versionA := "3.0.15.6"
-	versionB := "3.0.15.5"
+	versionA := "3.0.15.7"
+	versionB := "3.0.15.6"
 	t.Log(version.Compare(versionA, versionB))
 
 }

@@ -30,13 +30,17 @@ func Compare(verA, verB string) int {
 	lenStrA := len(verStrArrA)
 	lenStrB := len(verStrArrB)
 
-	if lenStrA != lenStrB {
-		if lenStrA > lenStrB {
-			return 1
+	// 版本号位数不等时,对缺少的位进行补0
+	if lenStrA > lenStrB {
+		for i := 1; i <= lenStrA-lenStrB; i++ {
+			verStrArrB = append(verStrArrB, "0")
 		}
-		return -1
-		// panic("版本号格式不一致!")
+	}
 
+	if lenStrA < lenStrB {
+		for i := 1; i <= lenStrB-lenStrA; i++ {
+			verStrArrA = append(verStrArrA, "0")
+		}
 	}
 
 	return compareArrVersion(verStrArrA, verStrArrB)
@@ -44,9 +48,7 @@ func Compare(verA, verB string) int {
 
 // 比较版本号字符串数组
 func compareArrVersion(verA, verB []string) int {
-
 	for i, _ := range verA {
-
 		littleResult := compareLittleVersion(verA[i], verB[i])
 
 		if littleResult != VersionEqual {
@@ -80,7 +82,6 @@ func compareLittleVersion(verA, verB string) int {
 
 // 按byte位进行比较小版本号
 func compareByBytes(verA, verB []byte) int {
-
 	for index, _ := range verA {
 		if verA[index] > verB[index] {
 			return VersionBig
