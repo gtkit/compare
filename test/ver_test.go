@@ -4,12 +4,12 @@ package test
 import (
 	"testing"
 
-	"gitlab.superjq.com/go-tools/compare/version"
+	"github.com/xzf-tools/compare/version"
 )
 
 func TestVersion(t *testing.T) {
-	versionA := "3.0.15.7"
+	versionA := "3.0.16"
 	versionB := "3.0.15.6"
-	t.Log(version.Compare(versionA, versionB))
+	t.Log("比较结果: ", version.Compare(versionA, versionB))
 
 }

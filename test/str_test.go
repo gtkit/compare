@@ -4,7 +4,7 @@ package test
 import (
 	"testing"
 
-	"gitlab.superjq.com/go-tools/compare/strcmp"
+	"github.com/xzf-tools/compare/strcmp"
 )
 
 func TestStrCompare(t *testing.T) {
