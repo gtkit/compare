@@ -1,3 +1,3 @@
-module github.com/xzf-tools/compare
+module github.com/gtkit/compare
 
 go 1.20
